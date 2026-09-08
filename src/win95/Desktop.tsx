@@ -8,6 +8,7 @@ import AboutApp from "../apps/AboutApp";
 import ExperienceApp from "../apps/ExperienceApp";
 import SkillsApp from "../apps/SkillsApp";
 import TerminalApp from "../apps/TerminalApp";
+import DownloadApp from "../apps/DownloadApp";
 import { MyComputerApp, RecycleApp, EducationApp, DisplayPropsApp, WALLPAPERS, MsgBox } from "../apps/MiscApps";
 
 /* ================= registry aplikasi ================= */
@@ -43,6 +44,13 @@ const APPS: Record<string, { title: string; icon: IconName; w: number; h: number
       <DisplayPropsApp current={api.wallpaper} onChange={api.setWallpaper} onClose={() => api.closeKey(key)} />
     ),
   },
+  download: {
+    title: "Download Project",
+    icon: "floppy",
+    w: 620,
+    h: 520,
+    render: () => <DownloadApp />,
+  },
 };
 
 const DESKTOP_ICONS: { id: string; label: string; icon: IconName }[] = [
@@ -54,6 +62,7 @@ const DESKTOP_ICONS: { id: string; label: string; icon: IconName }[] = [
   { id: "education", label: "Pendidikan.lnk", icon: "gradcap" },
   { id: "terminal", label: "MS-DOS Prompt", icon: "terminal" },
   { id: "recycle", label: "Recycle Bin", icon: "bin" },
+  { id: "download", label: "Download Project", icon: "floppy" },
 ];
 
 /* ================= Desktop ================= */
@@ -220,6 +229,7 @@ export default function Desktop({ onShutdown, onRestart }: { onShutdown: () => v
             <StartItem icon="gradcap" label="Pendidikan" onClick={() => openApp("education")} />
             <StartItem icon="computer" label="My Computer" onClick={() => openApp("mycomputer")} />
             <StartItem icon="terminal" label="MS-DOS Prompt" onClick={() => openApp("terminal")} />
+            <StartItem icon="floppy" label="Download Project" onClick={() => openApp("download")} />
             <div className="my-[3px] border-t border-[#808080] border-b border-b-white" />
             <StartItem icon="shutdown" label="Shut Down…" onClick={() => { setStartOpen(false); setShutdownDlg(true); }} />
           </div>

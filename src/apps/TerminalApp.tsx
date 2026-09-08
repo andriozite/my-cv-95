@@ -43,6 +43,7 @@ export default function TerminalApp({ openApp, closeSelf }: Props) {
           "  VER          ... versi sistem",
           "  DATE / TIME  ... jam sistem",
           "  GUDANG       ... status operasional",
+          "  DOWNLOAD     ... download semua source code (ZIP)",
           "  CLS          ... bersihkan layar",
           "  EXIT         ... tutup prompt",
         ];
@@ -102,6 +103,11 @@ export default function TerminalApp({ openApp, closeSelf }: Props) {
           "",
           "Semua sistem GO. Siap kirim < 15 menit.",
         ];
+        break;
+      case "download":
+      case "dl":
+        openApp("download");
+        out = ["Membuka Download Project ...", "Semua source code akan di-zip jadi satu."];
         break;
       case "cls":
         setHistory([]);
